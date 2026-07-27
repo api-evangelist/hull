@@ -1,0 +1,38 @@
+generated: '2026-07-19'
+method: searched
+source: https://www.hull.io/docs/reference/http_api/status_codes/
+format: http-status
+envelope:
+  style: http-status
+  note: >-
+    Hull signals success or failure with standard HTTP status codes. No
+    application/problem+json (RFC 9457) body is documented.
+errors:
+  - status: 200
+    title: OK
+    meaning: The requested object exists.
+  - status: 201
+    title: Created
+    meaning: The object has been created.
+  - status: 400
+    title: Bad Request
+    meaning: Required parameters are missing.
+    action: Supply all required parameters and retry.
+  - status: 401
+    title: Unauthorized
+    meaning: Your App ID, Access Token and/or User ID are missing or invalid.
+    action: Check Hull-App-Id and Hull-Access-Token headers.
+  - status: 404
+    title: Not Found
+    meaning: The requested object doesn't exist.
+  - status: 405
+    title: Method Not Allowed
+    meaning: The called method doesn't exist.
+  - status: 500
+    title: Server Error
+    meaning: Something went wrong on Hull's side.
+    action: Retry later; contact support if persistent.
+  - status: 503
+    title: Service Unavailable
+    meaning: Something went wrong on Hull's side.
+    action: Retry later.

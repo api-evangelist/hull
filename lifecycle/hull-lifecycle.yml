@@ -1,0 +1,31 @@
+generated: '2026-07-19'
+method: searched
+source: https://www.hull.io/docs/reference/http_api/
+status: end-of-life
+eol:
+  announced: >-
+    "Hull is now part of MessageBird and is no longer accepting new customers on
+    Hull.io." Hull, the real-time Customer Data Platform, was acquired by
+    MessageBird (now Bird). The product docs and dashboard remain available to
+    existing customers but the platform is closed to new signups.
+  successor: https://bird.com
+  banner_source: https://www.hull.io/docs/
+versioning:
+  scheme: uri-path
+  current: v1
+  docs: https://www.hull.io/docs/reference/http_api/introduction/
+deprecation:
+  policy_url: null
+  note: >-
+    No formal RFC 8594 Sunset/Deprecation-header policy is published; the
+    product-level end-of-life notice above is the operative deprecation signal.
+status_page:
+  url: https://status.hull.io/
+  provider: Statuspage (Atlassian)
+  active: false
+  note: >-
+    A first-party Statuspage exists at status.hull.io but currently reports
+    "Page Inactive" following the MessageBird acquisition.
+sla:
+  url: null
+deprecated_operations: []

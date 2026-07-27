@@ -1,0 +1,45 @@
+generated: '2026-07-19'
+method: searched
+source: https://github.com/hull
+packages:
+  - language: javascript
+    registry: npm
+    name: hull
+    url: https://www.npmjs.com/package/hull
+    install: npm install hull
+    repository: https://github.com/hull/hull-node
+    description: Node.js Connector SDK for Hull.io (build connectors / ships).
+    official: true
+  - language: javascript
+    registry: npm
+    name: hull-client
+    url: https://www.npmjs.com/package/hull-client
+    install: npm install hull-client
+    repository: https://github.com/hull/hull-client-node
+    description: Barebones Node.js API client for hull.io.
+    official: true
+  - language: javascript
+    registry: github
+    name: hull-js
+    url: https://github.com/hull/hull-js
+    description: The hull.js browser library (client-side tracking / identity).
+    repository: https://github.com/hull/hull-js
+    official: true
+  - language: php
+    registry: github
+    name: hull-php
+    url: https://github.com/hull/hull-php
+    description: Hull PHP client.
+    repository: https://github.com/hull/hull-php
+    official: true
+  - language: ruby
+    registry: github
+    name: hull-ruby
+    url: https://github.com/hull/hull-ruby
+    description: Hull Ruby client.
+    repository: https://github.com/hull/hull-ruby
+    official: true
+notes: >-
+  First-party client libraries are published under the github.com/hull
+  organization. The unrelated npm packages "hull.js" (a concave-hull geometry
+  library) and PyPI "hull" are NOT Hull.io and are excluded.

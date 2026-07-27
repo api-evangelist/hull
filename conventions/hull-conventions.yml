@@ -1,0 +1,48 @@
+generated: '2026-07-19'
+method: searched
+source: https://www.hull.io/docs/reference/http_api/
+api: Hull HTTP API
+base_url_pattern: https://{organization_namespace}.hullapp.io/api/v1
+authentication:
+  style: custom-header apiKey + JWT
+  headers: [Hull-App-Id, Hull-Access-Token]
+  ref: authentication/hull-authentication.yml
+  docs: https://www.hull.io/docs/reference/http_api/authentication/
+path_prefix:
+  value: /api/v1
+  note: >-
+    Every raw HTTP call starts with /api/v1; the Hull SDKs add this prefix
+    automatically. Objects are addressed by Object ID (a flat API): GET /:id.
+idempotency:
+  supported: false
+  note: >-
+    Hull documents no idempotency-key header or parameter. Writes are not
+    guarded by a client-supplied idempotency key; identity resolution merges
+    entities by claim rather than by request de-duplication.
+pagination:
+  style: page-number
+  params:
+    per_page: { default: 30, description: Number of items per page }
+    page: { default: 1, description: Page to retrieve }
+  applies_to: any endpoint that returns a collection
+  docs: https://www.hull.io/docs/reference/http_api/pagination/
+querying:
+  docs: https://www.hull.io/docs/reference/http_api/querying/
+  note: Users, Accounts and Events are searchable via query endpoints.
+versioning:
+  scheme: uri-path
+  current: v1
+  ref: lifecycle/hull-lifecycle.yml
+error_envelope:
+  style: http-status
+  note: >-
+    Errors are signaled with standard HTTP status codes (200/201/400/401/404/405/500/503);
+    no RFC 9457 problem+json envelope is documented.
+  ref: errors/hull-error-codes.yml
+rate_limiting:
+  note: >-
+    Connectors document rate limiting on outgoing webhook delivery; the core
+    HTTP API does not publish explicit numeric rate-limit headers in the docs.
+webhooks:
+  ref: asyncapi/hull-webhooks.yml
+  note: Outgoing User/Account Webhooks and Incoming Webhooks connectors.

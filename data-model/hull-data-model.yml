@@ -1,0 +1,58 @@
+generated: '2026-07-19'
+method: searched
+source: https://www.hull.io/docs/concepts/
+description: >-
+  Entity-relationship model derived from Hull's Concepts reference. Hull is a
+  Customer Data Platform organized around Users, Accounts, Events and Segments,
+  unified by claim-based Identity Resolution and connected to external tools via
+  Connectors.
+entities:
+  - name: Account
+    description: An individual company. Has Account Attributes and associated Users.
+    identity: claim-based (domain, external_id) via Identity Resolution
+    docs: https://www.hull.io/docs/concepts/accounts/
+  - name: User
+    description: A person; represents an employee of an Account company.
+    identity: claim-based (email, external_id, anonymous_id) via Identity Resolution
+    docs: https://www.hull.io/docs/concepts/users/
+  - name: Event
+    description: A tracked activity performed by a User (User-scoped; Account events are not supported).
+    docs: https://www.hull.io/docs/concepts/events/
+  - name: Segment
+    description: A saved group of Users or Accounts matching a filter.
+    docs: https://www.hull.io/docs/concepts/segments/
+  - name: Connector
+    description: An integration (a.k.a. "ship") that ingests, computes, notifies or syncs data with external tools.
+    docs: https://www.hull.io/docs/concepts/connectors/
+relationships:
+  - from: Account
+    type: has_many
+    to: User
+    via: account
+  - from: User
+    type: belongs_to
+    to: Account
+    via: account
+  - from: User
+    type: has_many
+    to: Event
+    via: user
+  - from: Event
+    type: belongs_to
+    to: User
+    via: user
+  - from: Segment
+    type: has_many
+    to: User
+    via: segment_ids
+  - from: Segment
+    type: has_many
+    to: Account
+    via: account_segment_ids
+  - from: Connector
+    type: listens_to
+    to: [User, Account]
+    via: notify/compute data lifecycle
+identity_resolution:
+  docs: https://www.hull.io/docs/reference/identity_resolution/
+  note: Data about the same person/company from separate sources is auto-merged by claims.

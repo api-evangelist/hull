@@ -1,0 +1,36 @@
+generated: '2026-07-19'
+method: searched
+source: https://www.hull.io/docs/connectors/outgoing-user-webhooks/
+spec_type: Webhooks
+description: >-
+  Hull exposes an event/webhook surface through dedicated Connectors rather than
+  a published AsyncAPI document. Outgoing webhooks push Hull User and Account
+  updates to any HTTPS endpoint; the Incoming Webhooks connector receives events
+  into Hull.
+delivery:
+  transport: https POST
+  receiver_requirement: Webhook receiver endpoint must respond with a 2xx status code.
+  triggers: [user/account event occurrence, attribute change, segment change]
+channels:
+  - name: outgoing-user-webhooks
+    direction: outgoing
+    description: Send Hull User updates (events, attribute changes, segment changes) as webhooks.
+    docs: https://www.hull.io/docs/connectors/outgoing-user-webhooks/
+  - name: outgoing-account-webhooks
+    direction: outgoing
+    description: Send Hull Account updates as webhooks.
+    docs: https://www.hull.io/docs/connectors/outgoing-account-webhooks/
+  - name: incoming-webhooks
+    direction: incoming
+    description: Receive external events into Hull via an incoming webhook endpoint.
+    docs: https://www.hull.io/docs/connectors/incoming-webhooks/
+  - name: firehose
+    direction: incoming
+    description: >-
+      High-throughput ingestion API (Attribute & Event Firehose) accepting a
+      batch array where each entry carries its own Hull-Access-Token JWT claims.
+    docs: https://www.hull.io/docs/reference/http_api/
+asyncapi_spec: null
+note: >-
+  No AsyncAPI document is published by the provider; this artifact captures the
+  documented webhook/event surface (type Webhooks), not a fabricated spec.

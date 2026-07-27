@@ -1,0 +1,46 @@
+# Hull
+
+> Hull is a real-time Customer Data Platform (CDP) that unifies customer data from every source into a single User and Account profile via claim-based identity resolution, then syncs enriched, segmented data out to marketing, sales and analytics tools through Connectors. Hull is now part of MessageBird (Bird) and is closed to new customers; this profile documents its public developer surface. (method: generated from apis.yml + repo artifacts)
+
+## APIs
+- [Hull HTTP API](https://www.hull.io/docs/reference/http_api/introduction/): Flat REST API at https://{organization}.hullapp.io/api/v1 covering Users, Accounts, Events, Segments, Status and Bulk operations.
+
+## Reference
+- [HTTP API Introduction](https://www.hull.io/docs/reference/http_api/introduction/)
+- [Authentication](https://www.hull.io/docs/reference/http_api/authentication/): Hull-App-Id (Connector ID) + Hull-Access-Token (Connector Secret or JWT).
+- [Pagination](https://www.hull.io/docs/reference/http_api/pagination/): page-number (per_page default 30, page default 1).
+- [Querying](https://www.hull.io/docs/reference/http_api/querying/)
+- [Status Codes](https://www.hull.io/docs/reference/http_api/status_codes/)
+- [Identity Resolution](https://www.hull.io/docs/reference/identity_resolution/)
+- [Users API](https://www.hull.io/docs/reference/http_api/apis/users/introduction/)
+- [Accounts API](https://www.hull.io/docs/reference/http_api/apis/accounts/introduction/)
+- [Events API](https://www.hull.io/docs/reference/http_api/apis/events/introduction/)
+- [Bulk operations](https://www.hull.io/docs/reference/http_api/apis/bulk_operations/introduction/)
+
+## Concepts
+- [Users](https://www.hull.io/docs/concepts/users/)
+- [Accounts](https://www.hull.io/docs/concepts/accounts/)
+- [Events](https://www.hull.io/docs/concepts/events/)
+- [Segments](https://www.hull.io/docs/concepts/segments/)
+- [Connectors](https://www.hull.io/docs/concepts/connectors/)
+- [Data lifecycle: Ingest / Compute / Notify](https://www.hull.io/docs/data_lifecycle/)
+
+## SDKs
+- [hull (npm) — Node Connector SDK](https://www.npmjs.com/package/hull)
+- [hull-client (npm) — Node API client](https://www.npmjs.com/package/hull-client)
+- [hull-js — browser library](https://github.com/hull/hull-js)
+- [hull-php — PHP client](https://github.com/hull/hull-php)
+- [hull-ruby — Ruby client](https://github.com/hull/hull-ruby)
+
+## Webhooks
+- [Outgoing User Webhooks](https://www.hull.io/docs/connectors/outgoing-user-webhooks/)
+- [Outgoing Account Webhooks](https://www.hull.io/docs/connectors/outgoing-account-webhooks/)
+- [Incoming Webhooks](https://www.hull.io/docs/connectors/incoming-webhooks/)
+
+## Docs
+- [Documentation home](https://www.hull.io/docs/)
+- [Guides](https://www.hull.io/docs/guides/)
+- [Connectors catalog](https://www.hull.io/docs/connectors/)
+- [Node Client Guide](https://www.hull.io/docs/reference/hull_client_node/)
+- [GitHub organization](https://github.com/hull)
+- [Status page](https://status.hull.io/)

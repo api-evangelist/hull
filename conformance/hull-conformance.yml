@@ -1,0 +1,27 @@
+generated: '2026-07-19'
+method: derived
+source: https://www.hull.io/docs/reference/http_api/
+standards:
+  - id: rest
+    conforms: true
+    evidence: Flat resource API using standard HTTP verbs (GET/POST/PUT/DELETE).
+  - id: json
+    conforms: true
+    evidence: Requests and responses are JSON.
+  - id: jwt
+    conforms: true
+    evidence: User/account identity is asserted via JSON Web Tokens (Hull-Access-Token) with claims.
+  - id: oauth2
+    conforms: false
+    evidence: No OAuth2 authorization server; auth is Connector ID + Secret / JWT.
+  - id: oidc
+    conforms: false
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: Errors use bare HTTP status codes, not application/problem+json.
+  - id: pagination
+    conforms: true
+    evidence: Page-number pagination via per_page/page parameters.
+  - id: idempotency
+    conforms: false
+    evidence: No idempotency-key mechanism documented.
