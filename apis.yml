@@ -10,8 +10,11 @@ description: >-
   Connectors ("ships"). Developers integrate through a flat HTTP API at
   https://{organization}.hullapp.io/api/v1 covering Users, Accounts, Events,
   Segments, Status and Bulk operations, plus first-party Node, browser, PHP and
-  Ruby client libraries and an outgoing/incoming webhook surface. Hull is now
-  part of MessageBird (Bird) and is no longer accepting new customers.
+  Ruby client libraries and an outgoing/incoming webhook surface. Hull was
+  acquired by MessageBird (now Bird) and the platform was switched off at 09:00
+  ET on 31 December 2022, with all infrastructure decommissioned and customer
+  data deleted; the marketing site and documentation remain published but the
+  API host no longer answers.
 url: https://raw.githubusercontent.com/api-evangelist/hull/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -20,20 +23,26 @@ x-backed-by:
 x-tier: stub
 x-tier-reason: portfolio-lead
 accessModel:
-  pricing: unknown
-  onboarding: self-serve
+  pricing: paid
+  onboarding: none
   trial: false
   try_now: false
   public: false
-  label: Self-serve signup
-  confidence: medium
+  label: Closed — platform shut down 31 December 2022
+  confidence: high
   source:
-  - authentication
-  generated: '2026-07-22'
-  method: derived
+  - https://www.hull.io/pricing/
+  - https://www.hull.io/faq/
+  note: >-
+    Published tiers were Team $950/mo, Business $1600/mo and Business + (custom),
+    all on annual commercial agreements with no free tier and no trial. Hull was
+    switched off at 09:00 ET on 2022-12-31 and its infrastructure decommissioned;
+    hullapp.io no longer completes a TLS handshake.
+  generated: '2026-08-13'
+  method: searched
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-19'
+modified: '2026-08-13'
 image: https://www.hull.io/assets/images/logo/logo_dark@2x.png
 tags:
 - Company
@@ -120,8 +129,31 @@ common:
   url: llms/hull-llms.txt
 - type: DomainSecurity
   url: security/hull-domain-security.yml
+- type: Support
+  url: https://www.hull.io/faq/
+- type: ChangeLog
+  url: https://changes.hull.io
+- type: ChangeLog
+  name: Hull changelog (captured)
+  url: changelog/hull-changelog.yml
+- type: Deprecation
+  url: https://www.hull.io/faq/
+- type: Plans
+  url: plans/hull-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/hull-rate-limits.yml
+- type: Sandbox
+  url: sandbox/hull-sandbox.yml
+- type: VulnerabilityDisclosure
+  url: security/hull-vulnerability-disclosure.yml
+- type: Security
+  url: https://www.hull.io/security/
+- type: TrustCenter
+  url: security/hull-trust-center.yml
+- type: Compliance
+  url: https://www.hull.io/security/
 x-enrichment:
-  date: '2026-07-19'
-  status: backfilled
+  date: '2026-08-13'
+  status: enriched
+  artifacts_added: 6
   pass: local-v1
-  note: backfilled from .gitignore signal + verified work evidence
