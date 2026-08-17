@@ -1,16 +1,24 @@
-generated: '2026-07-19'
-method: derived
-source: https://www.hull.io/docs/reference/http_api/
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://www.hull.io/docs/reference/http_api/, https://www.hull.io/security/,
+  https://www.hull.io/pricing/
 standards:
   - id: rest
     conforms: true
-    evidence: Flat resource API using standard HTTP verbs (GET/POST/PUT/DELETE).
+    evidence: >-
+      Flat resource API using standard HTTP verbs — "GET to retrieve, POST to
+      create, PUT to modify DELETE to remove", objects addressed by Object ID.
   - id: json
     conforms: true
     evidence: Requests and responses are JSON.
   - id: jwt
     conforms: true
-    evidence: User/account identity is asserted via JSON Web Tokens (Hull-Access-Token) with claims.
+    evidence: >-
+      RFC 7519 JSON Web Tokens carry identity claims in the Hull-Access-Token
+      header, including registered claims (iss, iat, exp, nbf) and Hull's private
+      claims (io.hull.asUser, io.hull.asAccount, io.hull.subjectType,
+      io.hull.create, io.hull.active).
   - id: oauth2
     conforms: false
     evidence: No OAuth2 authorization server; auth is Connector ID + Secret / JWT.
@@ -19,9 +27,46 @@ standards:
   - id: rfc9457-problem-details
     conforms: false
     evidence: Errors use bare HTTP status codes, not application/problem+json.
+  - id: rfc9116-security-txt
+    conforms: false
+    evidence: /.well-known/security.txt returns 404 (probed 2026-08-13).
+  - id: rfc8594-sunset-header
+    conforms: false
+    evidence: No Sunset or Deprecation headers; end-of-life was announced only in prose on /faq/.
   - id: pagination
     conforms: true
-    evidence: Page-number pagination via per_page/page parameters.
+    evidence: Page-number pagination via per_page (default 30) / page (default 1) parameters.
   - id: idempotency
     conforms: false
     evidence: No idempotency-key mechanism documented.
+  - id: elasticsearch-query-dsl
+    conforms: true
+    evidence: >-
+      The Users, Accounts and Events search endpoints accept an Elasticsearch
+      Query DSL document in the `query` parameter, including has_parent /
+      with_child predicates across the User→Event parent-child relation.
+  - id: gdpr
+    conforms: claimed
+    evidence: >-
+      "Hull is committed to compliance with the General Data Protection
+      Regulation (GDPR)"; DPA available on request from security@hull.io.
+      https://www.hull.io/security/
+  - id: soc2-type2
+    conforms: claimed
+    evidence: >-
+      "SOC2 Type 2" listed under Enterprise features on
+      https://www.hull.io/pricing/, marked Available on all tiers. No report,
+      audit window or auditor is published.
+  - id: eu-us-privacy-shield
+    conforms: claimed
+    evidence: >-
+      "Privacy Shield Compliant" on https://www.hull.io/pricing/. The framework
+      was invalidated by Schrems II (July 2020) and the claim was never updated.
+compliance_program:
+  published: true
+  page: https://www.hull.io/security/
+  ref: security/hull-trust-center.yml
+  certifications: [SOC 2 Type 2, GDPR, EU-US Privacy Shield, independent penetration testing]
+  caveat: >-
+    All attestations are named but none is evidenced with a document; each is
+    gated behind an email request. The platform was decommissioned 2022-12-31.

@@ -1,31 +1,81 @@
-generated: '2026-07-19'
+generated: '2026-08-13'
 method: searched
-source: https://www.hull.io/docs/reference/http_api/
-status: end-of-life
+source: >-
+  https://www.hull.io/faq/, https://www.hull.io/docs/reference/http_api/,
+  https://status.hull.io/, live host probes 2026-08-13
+status: decommissioned
 eol:
   announced: >-
     "Hull is now part of MessageBird and is no longer accepting new customers on
     Hull.io." Hull, the real-time Customer Data Platform, was acquired by
-    MessageBird (now Bird). The product docs and dashboard remain available to
-    existing customers but the platform is closed to new signups.
+    MessageBird (now Bird).
+  shutdown_date: '2022-12-31'
+  shutdown_time: 09:00 ET
+  quote: >-
+    "We will be switching off access to Hull at 09:00 ET on 31 December 2022.
+    This means that you will not be able to access Hull or any data from that
+    moment onwards. Hull's infrastructure will be completely decommissioned
+    thereafter."
+  data_disposition: >-
+    "All your data will be deleted from the Hull platform when it is completely
+    decommissioned thereafter."
+  feature_freeze: >-
+    "we will roll out bug fixes and patches as necessary… And, we will not be
+    rolling out any new features."
+  support_until: '2022-12-31'
+  support_contact: support@hull.io
   successor: https://bird.com
+  faq: https://www.hull.io/faq/
   banner_source: https://www.hull.io/docs/
+verification:
+  checked: '2026-08-13'
+  api_host_reachable: false
+  api_host_detail: >-
+    https://hullapp.io and https://dashboard.hullapp.io do not complete a TLS
+    handshake (connection times out after the client hello). The API base named
+    in apis.yml is dead.
+  marketing_site_reachable: partial
+  marketing_site_detail: >-
+    www.hull.io still serves the full marketing site and docs from Netlify, but
+    presents a *.netlify.app wildcard certificate that does not match the
+    hostname, so any client that verifies TLS fails. Content was read only with
+    verification disabled.
+  cdn_reachable: false
+  cdn_detail: js.hull.io (the documented hull.js loader host) no longer resolves in DNS.
 versioning:
   scheme: uri-path
   current: v1
+  stable_since: 'unchanged through end-of-life'
   docs: https://www.hull.io/docs/reference/http_api/introduction/
-deprecation:
-  policy_url: null
   note: >-
-    No formal RFC 8594 Sunset/Deprecation-header policy is published; the
-    product-level end-of-life notice above is the operative deprecation signal.
+    "EVERY CALL starts with /api/v1." No v2 was ever published and no version
+    negotiation header exists.
+deprecation:
+  policy_url: https://www.hull.io/faq/
+  sunset_header: false
+  rfc8594: false
+  note: >-
+    No RFC 8594 Sunset/Deprecation header support and no per-operation
+    deprecation policy. The product-level end-of-life notice and its 12-month
+    migration window (announced with a 2022-12-31 switch-off, "we are giving our
+    customers until 31 December 2022 to plan and schedule their migrations") is
+    the only deprecation signal Hull ever published.
 status_page:
   url: https://status.hull.io/
   provider: Statuspage (Atlassian)
   active: false
+  http_status: 200
+  checked: '2026-08-13'
   note: >-
-    A first-party Statuspage exists at status.hull.io but currently reports
-    "Page Inactive" following the MessageBird acquisition.
+    Resolves and returns 200 but the page title is "hull Status - Page Inactive";
+    the Statuspage API (/api/v2/status.json) answers "Your page is inactive."
+    The page was deactivated after the shutdown.
+changelog:
+  url: https://changes.hull.io
+  last_entry: '2021-01-08'
+  ref: changelog/hull-changelog.yml
 sla:
   url: null
+  uptime_target: null
+  note: No public SLA or uptime commitment was published; on-call coverage is described narratively on /security/.
 deprecated_operations: []

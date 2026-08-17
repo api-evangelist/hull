@@ -1,0 +1,64 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://www.hull.io/docs/connectors/outgoing-user-webhooks/,
+  https://www.hull.io/docs/connectors/outgoing-account-webhooks/,
+  https://www.hull.io/docs/reference/hull_node/api/,
+  https://www.hull.io/pricing/
+limit_count: 2
+api: Hull HTTP API
+summary: >-
+  Hull publishes NO numeric rate limit for its inbound HTTP API and documents no
+  rate-limit response headers. The only published, numeric limits are on the
+  OUTBOUND side — the Outgoing Webhooks connectors, where the operator sets the
+  request rate and concurrency and Hull enforces a hard batch-timeout budget.
+  Hull markets "Intelligent Queuing, Adaptive Rate Limits" as a platform feature
+  on every pricing tier, but the adaptive limits are never quantified in public
+  docs. Inbound throughput is governed commercially instead, by the monthly
+  incoming-request quota attached to each plan (see plans/hull-plans-pricing.yml).
+response_headers:
+  documented: false
+  headers: []
+  note: >-
+    No X-RateLimit-*, RateLimit-* or Retry-After header is documented anywhere in
+    the HTTP API reference, the status-codes page, or the Node client reference.
+    An agent has no runtime signal to read.
+exhaustion_status:
+  documented: false
+  note: >-
+    429 is not listed among the status codes Hull documents for its own API
+    (200/201/400/401/404/405/500/503). The Node Connector SDK does define a
+    RateLimitError raised on `res.status === 429`, but that handler is for the
+    THIRD-PARTY service APIs a connector calls, not for Hull's own API.
+limits:
+  - scope: per-webhook-endpoint (Outgoing User Webhooks / Outgoing Account Webhooks connector)
+    setting: Requests rate limit
+    window: 1 second
+    limit: operator-configured
+    description: The maximum number of requests the connector performs every 1 second.
+    docs: https://www.hull.io/docs/connectors/outgoing-user-webhooks/
+  - scope: per-webhook-endpoint (Outgoing User Webhooks / Outgoing Account Webhooks connector)
+    setting: Requests concurrency
+    window: n/a
+    limit: operator-configured
+    burst: >-
+      Caps simultaneous open requests; with concurrency 2 the first two fire
+      immediately and the third waits for either to complete.
+    docs: https://www.hull.io/docs/connectors/outgoing-user-webhooks/
+platform_timeout_budget:
+  rule: "10 requests needs to fit in 25 seconds time window"
+  detail: >-
+    Hull's internal batching and timeout levels require the connector to process
+    10 users in under ~20 seconds. With concurrency 1 the slowest webhook
+    endpoint must respond in under ~2 seconds or Hull's timeout interrupts the
+    data flow.
+  receiver_requirement: >-
+    The receiver must answer 200-204; anything else is recorded as
+    outgoing.account.error. Redirects (301/302) are treated as errors, not
+    followed.
+  docs: https://www.hull.io/docs/connectors/outgoing-account-webhooks/
+commercial_quota:
+  metric: incoming requests per month
+  ref: plans/hull-plans-pricing.yml
+  values: {Team: 10000000, Business: 20000000, Business +: custom}
+  overage: {Team: $190 per 1M, Business: $180 per 1M}

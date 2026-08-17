@@ -1,0 +1,87 @@
+generated: '2026-08-13'
+method: searched
+probe: true
+url: https://www.hull.io/security/
+kind: security-and-compliance-page
+note: >-
+  Hull publishes no dedicated trust centre (no trust.hull.io, no Vanta/Drata/
+  SafeBase portal — all probed 404 on 2026-08-13). Its compliance posture is
+  stated on a single narrative /security/ page plus an "Enterprise features" row
+  in the pricing table. Attestations are named but no report, audit window,
+  auditor or certificate is published; every artifact is gated behind an email
+  request to security@hull.io.
+certifications:
+  - name: SOC 2 Type 2
+    status: claimed
+    evidence: >-
+      Listed as an "Enterprise features" row on https://www.hull.io/pricing/,
+      marked Available on the Team, Business and Business + tiers.
+    report_available: on request
+  - name: GDPR
+    status: claimed
+    evidence: >-
+      "Hull is committed to compliance with the General Data Protection
+      Regulation (GDPR)… Please also get in touch to receive our Data Processing
+      Agreement (DPA) from security@hull.io."
+    report_available: DPA on request
+  - name: EU-US Privacy Shield
+    status: claimed
+    evidence: >-
+      "Privacy Shield Compliant" row on the pricing page. Note that the
+      Privacy Shield framework was invalidated by Schrems II in July 2020; the
+      claim predates that and was never updated.
+    report_available: false
+  - name: Penetration testing
+    status: claimed
+    evidence: >-
+      "The Hull Platform undergoes regular penetration testing by independent
+      third parties… To get a copy of our test results please send inquiry to
+      security@hull.io."
+    report_available: on request
+inherited_certifications:
+  - provider: Amazon Web Services
+    note: >-
+      "Hull utilizes Amazon Web Services for our platform infrastructure. Our
+      customers also benefit from Amazon Web Services Cloud Compliance security
+      and privacy measures including ISO and SOC certifications."
+  - provider: Heroku, Elastic and other sub-processors
+    note: >-
+      "our partners maintain but not limited to a SOC2 compliance and ISO
+      certification listed on their websites." These are the sub-processors'
+      certifications, not Hull's.
+data_handling:
+  hosting: Amazon Web Services
+  headquarters: Atlanta, GA, United States
+  offices: [Atlanta GA (HQ), Paris France]
+  international_transfers: >-
+    "We may transfer personal data outside of the country it was collected in or
+    outside of the European Economic Area (EEA)… we comply with the applicable
+    legal requirements of providing adequate safeguards."
+  backups: [platform automatic back-ups, infrastructure replication, workflow/business-logic snapshots]
+  on_call: Global on-call engineering rotation documented.
+contact: security@hull.io
+privacy_policy: https://www.hull.io/pp/
+evidence:
+  - source: https://www.hull.io/security/
+    http_status: 200
+    fetched: '2026-08-13'
+    keywords: [GDPR, SOC2, ISO, penetration testing, Data Processing Agreement, security@hull.io]
+  - source: https://www.hull.io/pricing/
+    http_status: 200
+    fetched: '2026-08-13'
+    keywords: [GDPR Compliant, Privacy Shield Compliant, SOC2 Type 2, Penetration Testing]
+  - source: https://trust.hull.io/
+    http_status: 000
+    fetched: '2026-08-13'
+    note: Host does not resolve.
+  - source: https://www.hull.io/trust/
+    http_status: 404
+    fetched: '2026-08-13'
+  - source: https://www.hull.io/compliance/
+    http_status: 404
+    fetched: '2026-08-13'
+caveat: >-
+  Hull was shut down on 2022-12-31 and all infrastructure decommissioned; these
+  compliance claims describe a platform that no longer processes data. The
+  /security/ page also fails TLS verification (see
+  security/hull-domain-security.yml).

@@ -1,0 +1,86 @@
+generated: '2026-08-13'
+method: searched
+source: https://changes.hull.io
+resolved_url: https://headwayapp.co/hull-changes
+platform: Headway
+discovery: >-
+  Not linked from the developer docs. Found in the site-wide footer ("Resources →
+  Changelog") on https://www.hull.io/security/, pointing at the vanity host
+  changes.hull.io, which 302s to headwayapp.co/hull-changes.
+scheme:
+  type: product-release-notes
+  versioned: false
+  note: >-
+    Entries are dated product announcements with a category label (New,
+    Connectors); there are no release version numbers and no API version tags.
+    The HTTP API itself is versioned only by the /api/v1 path prefix, which never
+    changed — see lifecycle/hull-lifecycle.yml.
+current_version: v1
+latest_entry: '2021-01-08'
+entry_count_published: 10
+staleness:
+  last_updated: '2021-01-08'
+  note: >-
+    The changelog stopped almost two years before the platform was shut down on
+    2022-12-31. Neither the MessageBird acquisition nor the end-of-life
+    announcement was ever posted here; both live on the marketing site and the
+    /faq/ page instead.
+breaking_changes_published: false
+entries:
+  - date: '2021-01-08'
+    title: User Events Replay
+    categories: [New]
+    url: https://headwayapp.co/hull-changes/user-events-replay-180910
+    breaking: false
+    highlights: >-
+      Replaying User Events (not just User profiles) to destinations, selectable
+      by event and time period from the User Action dropdown; used for
+      backfilling historical data into third-party systems and for iterating on
+      event-based processors.
+  - date: '2020-11-06'
+    title: Announcing BigQuery and Snowflake Beta Programs!
+    categories: [New]
+    breaking: false
+    highlights: BigQuery and Snowflake warehouse importer connectors entered beta via the connector gallery.
+  - date: '2020-05-21'
+    title: New Copper Connector
+    categories: [Connectors]
+    breaking: false
+    highlights: >-
+      Two-way Copper CRM integration — Copper Leads/People to Hull Users,
+      Companies to Accounts, Activities to User Events; outgoing creation and
+      update of Copper Leads.
+  - date: '2020-03-20'
+    title: A better way to update your tools with the new Outgoing Webhooks
+    categories: [New]
+    breaking: false
+    highlights: Rework of the Outgoing Webhooks connector surface.
+  - date: '2020-02-18'
+    title: Ingesting the Salesforce owner email in Hull
+    categories: [New]
+    breaking: false
+  - date: '2020-01-09'
+    title: New Website connector
+    categories: [New]
+    breaking: false
+  - date: '2020-01-09'
+    title: New Account Processor connector
+    categories: [New]
+    breaking: false
+  - date: '2019-12-04'
+    title: Outreach incoming events
+    categories: [New]
+    breaking: false
+  - date: '2019-11-29'
+    title: Deactivate connectors
+    categories: [New]
+    breaking: false
+  - date: '2019-11-28'
+    title: Pushing events inside Salesforce as Tasks
+    categories: [New]
+    breaking: false
+sdk_changelogs:
+  - package: hull (npm)
+    file: https://github.com/hull/hull-node/blob/master/CHANGELOG.md
+    last_release: '2022-06-14'
+    note: The Node Connector SDK keeps its own CHANGELOG.md; it outlived the product changelog by 17 months.

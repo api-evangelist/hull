@@ -1,6 +1,6 @@
 # Hull
 
-> Hull is a real-time Customer Data Platform (CDP) that unifies customer data from every source into a single User and Account profile via claim-based identity resolution, then syncs enriched, segmented data out to marketing, sales and analytics tools through Connectors. Hull is now part of MessageBird (Bird) and is closed to new customers; this profile documents its public developer surface. (method: generated from apis.yml + repo artifacts)
+> Hull is a real-time Customer Data Platform (CDP) that unifies customer data from every source into a single User and Account profile via claim-based identity resolution, then syncs enriched, segmented data out to marketing, sales and analytics tools through Connectors. Hull was acquired by MessageBird (Bird) and the platform was SHUT DOWN at 09:00 ET on 31 December 2022, with all infrastructure decommissioned and customer data deleted thereafter. The marketing site and documentation below are still served, but the API host hullapp.io no longer answers and www.hull.io presents a certificate that does not match its hostname. This profile documents the historical public developer surface; nothing here is callable. (method: generated from apis.yml + repo artifacts, verified 2026-08-13)
 
 ## APIs
 - [Hull HTTP API](https://www.hull.io/docs/reference/http_api/introduction/): Flat REST API at https://{organization}.hullapp.io/api/v1 covering Users, Accounts, Events, Segments, Status and Bulk operations.
@@ -43,4 +43,8 @@
 - [Connectors catalog](https://www.hull.io/docs/connectors/)
 - [Node Client Guide](https://www.hull.io/docs/reference/hull_client_node/)
 - [GitHub organization](https://github.com/hull)
-- [Status page](https://status.hull.io/)
+- [Status page](https://status.hull.io/): Statuspage, deactivated after the shutdown ("Page Inactive").
+- [Changelog](https://changes.hull.io): Headway-hosted product release notes; last entry 2021-01-08.
+- [Pricing](https://www.hull.io/pricing/): Team $950/mo, Business $1600/mo, Business + custom — annual commitment, no free tier.
+- [Security & compliance](https://www.hull.io/security/): security@hull.io, GDPR, SOC 2 Type 2, penetration testing.
+- [End-of-life FAQ](https://www.hull.io/faq/): the shutdown notice, migration window and data-deletion terms.

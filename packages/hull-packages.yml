@@ -1,12 +1,22 @@
-generated: '2026-07-19'
+generated: '2026-08-13'
 method: searched
-source: https://github.com/hull
+source: >-
+  registry.npmjs.org, rubygems.org/api/v1, packagist.org, github.com/hull —
+  registry metadata read unauthenticated 2026-08-13
+note: >-
+  Every first-party Hull client library is abandoned. The newest published
+  release of any Hull SDK is the Node Connector SDK at 2022-06-14, six weeks
+  before the platform end-of-life announcement; the Ruby gem last shipped in
+  2014 and the PHP client has never carried a tagged release. The browser
+  library is CDN-distributed from js.hull.io, which no longer resolves in DNS.
 packages:
   - language: javascript
     registry: npm
     name: hull
     url: https://www.npmjs.com/package/hull
     install: npm install hull
+    version: 0.14.2
+    published: '2022-06-14'
     repository: https://github.com/hull/hull-node
     description: Node.js Connector SDK for Hull.io (build connectors / ships).
     official: true
@@ -15,31 +25,85 @@ packages:
     name: hull-client
     url: https://www.npmjs.com/package/hull-client
     install: npm install hull-client
+    version: 1.2.4
+    published: '2019-09-18'
     repository: https://github.com/hull/hull-client-node
     description: Barebones Node.js API client for hull.io.
     official: true
   - language: javascript
-    registry: github
+    registry: npm
+    name: hull-repl
+    url: https://www.npmjs.com/package/hull-repl
+    install: npm install hull-repl
+    version: 0.4.0
+    published: '2018-08-02'
+    repository: null
+    description: Simple REPL for the hull.io connector SDK (developer tool, not a product CLI).
+    official: false
+    note: >-
+      Not marked first-party: the package declares no repository and its sole
+      npm maintainer (michaloo) is not in the maintainer set that publishes the
+      `hull` and `hull-client` packages (rdardour, sbellity, mathieuravaux,
+      louis.jahn.hull). Listed because it is a real Hull-specific tool, but
+      ownership could not be proven.
+  - language: javascript
+    registry: cdn
     name: hull-js
-    url: https://github.com/hull/hull-js
-    description: The hull.js browser library (client-side tracking / identity).
+    url: https://js.hull.io/0.10.0/hull.js
+    version: 0.10.0
+    published: null
     repository: https://github.com/hull/hull-js
+    description: >-
+      The hull.js browser library (client-side tracking / identity). Distributed
+      from the js.hull.io CDN at a pinned version path, not from npm.
     official: true
+    note: >-
+      Version read from the pinned CDN URL published in the Hull.js reference
+      (https://js.hull.io/0.10.0/hull.js) and confirmed against package.json in
+      github.com/hull/hull-js. There is no registry metadata endpoint to date
+      the release; `published` is null because it was checked and nothing
+      datable exists. The CDN host js.hull.io no longer resolves in DNS
+      (probed 2026-08-13), so the documented loader URL is dead.
   - language: php
-    registry: github
-    name: hull-php
-    url: https://github.com/hull/hull-php
-    description: Hull PHP client.
+    registry: packagist
+    name: hull/hull
+    url: https://packagist.org/packages/hull/hull
+    install: composer require hull/hull
+    version: null
+    published: '2021-02-22'
     repository: https://github.com/hull/hull-php
+    description: Hull PHP SDK.
     official: true
+    note: >-
+      Checked packagist: the package has never had a tagged semver release —
+      only branch aliases (dev-master, dev-develop, dev-feature/events).
+      `version` is null because there is no released version to record;
+      `published` is the last dev-master update packagist reports.
   - language: ruby
-    registry: github
-    name: hull-ruby
-    url: https://github.com/hull/hull-ruby
-    description: Hull Ruby client.
+    registry: rubygems
+    name: hullio
+    url: https://rubygems.org/gems/hullio
+    install: gem install hullio
+    version: 0.4.0
+    published: '2014-09-25'
     repository: https://github.com/hull/hull-ruby
+    description: Hull Ruby Client.
     official: true
-notes: >-
-  First-party client libraries are published under the github.com/hull
-  organization. The unrelated npm packages "hull.js" (a concave-hull geometry
-  library) and PyPI "hull" are NOT Hull.io and are excluded.
+    note: >-
+      The gem name is `hullio`, not `hull` — the RubyGems package named `hull`
+      is an unrelated GitHub pull-request helper by another author. First-party
+      confirmed via hullio.gemspec in github.com/hull/hull-ruby and the gem's
+      "Stephane Bellity, Hull" authorship.
+excluded:
+  - name: hull (RubyGems)
+    reason: Unrelated code-review helper by hc5duke; not Hull.io.
+  - name: hull (PyPI)
+    reason: Unrelated 0.0.1 package by Vipin Sharma (github.com/gitvipin/hull); not Hull.io.
+  - name: hull.js (npm)
+    reason: Concave-hull geometry library; not Hull.io.
+currency:
+  newest_first_party_release: '2022-06-14'
+  newest_package: hull (npm, 0.14.2)
+  signal: >-
+    All first-party SDKs predate the 2022-12-31 platform shutdown. No client
+    library has shipped a release since.

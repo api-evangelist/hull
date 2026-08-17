@@ -1,0 +1,55 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://www.hull.io/pricing/,
+  https://www.hull.io/docs/guides/advanced-usage/organization-settings/
+model: separate-organization
+summary: >-
+  Hull's sandbox is a whole second Organization, not a test mode inside one
+  account. A customer on the Business tier or above could provision a Sandbox
+  Organization alongside Production and name it separately in Organization
+  Settings. There is no test/live key-prefix split, no magic test identifiers,
+  no test clock, and no fixture or trigger tooling — every credential is a real
+  Connector ID + Connector Secret scoped to whichever organization issued it.
+availability:
+  tiers: [Business, Business +]
+  entitlement: "Sandbox Environment"
+  self_serve: false
+  ref: plans/hull-plans-pricing.yml
+  docs: https://www.hull.io/pricing/
+separation:
+  mechanism: >-
+    A distinct Hull Organization with its own namespace, and therefore its own
+    https://{organization_namespace}.hullapp.io/api/v1 base URL and its own
+    Connectors (each with its own Connector ID and Secret).
+  key_prefixes: none
+  modes: none
+  docs: https://www.hull.io/docs/guides/advanced-usage/organization-settings/
+  quote: >-
+    "Give your Org an easy to remember name. Usually it'd be your company name,
+    but if you have a sandbox instance, you might want give different names to
+    the Production and Sandbox orgs."
+test_values:
+  published: false
+  note: >-
+    Hull publishes no test card numbers, test accounts, test tokens or magic
+    identifiers — it is a customer-data platform, not a payments API, and the
+    docs' example organization (hull-demos.hullapp.io) and example Connector ID
+    are illustrative sample values in the reference, not credentials anyone can
+    call.
+test_clocks: null
+fixture_tooling:
+  - name: REPL - Interactive Commandline
+    kind: hosted code sandbox connector
+    description: >-
+      A browser-hosted JavaScript environment (a Connector, not a local CLI) that
+      runs only when the operator presses RUN, used to hand-send traits, track,
+      alias and unalias calls into a Hull organization. Custom code executes in a
+      sandboxed runtime — the processor error payload carries a boolean `sandbox`
+      flag distinguishing errors raised in customer code from errors in the
+      processor itself.
+    docs: https://www.hull.io/docs/connectors/repl-interactive-commandline/
+availability_note: >-
+  Recorded as published documentation. The platform was shut down on 2022-12-31
+  and hullapp.io no longer completes a TLS handshake, so no sandbox organization
+  can be provisioned or reached today — see lifecycle/hull-lifecycle.yml.

@@ -2,48 +2,52 @@ generated: '2026-07-19'
 method: derived
 status: candidate
 source: https://www.hull.io/docs/reference/http_api/
-note: >-
-  No official hosted/remote MCP server is published by Hull (the product is
-  end-of-life under MessageBird/Bird). This is a CANDIDATE tool list derived
-  from the documented HTTP API operations, not a published server.
+note: No official hosted/remote MCP server is published by Hull (the product is end-of-life under MessageBird/Bird).
+  This is a CANDIDATE tool list derived from the documented HTTP API operations, not a published server.
 server:
   name: hull
   transport: http
   url: null
 tools:
-  - name: search_users
-    description: Search for Users.
-    source_operation: HTTP API - Users - Search for Users
-  - name: list_user_segments
-    description: Get all Users segments.
-    source_operation: HTTP API - Users - Get all Users segments
-  - name: update_user_attribute
-    description: Update a User attribute (trait).
-    source_operation: HTTP API - Users - Update User attribute
-  - name: search_accounts
-    description: Search for Accounts.
-    source_operation: HTTP API - Accounts - Search for Accounts
-  - name: list_account_segments
-    description: Get all Accounts segments.
-    source_operation: HTTP API - Accounts - Get all Accounts segments
-  - name: update_account_attribute
-    description: Update an Account attribute.
-    source_operation: HTTP API - Accounts - Update Account attribute
-  - name: search_events
-    description: Search for Events.
-    source_operation: HTTP API - Events - Search for Events
-  - name: get_events_schema
-    description: Get the Events schema.
-    source_operation: HTTP API - Events - Get all Events Schema
-  - name: get_organization_status
-    description: Get organization status.
-    source_operation: HTTP API - Status - Organization status
-  - name: import_users
-    description: Bulk import Users.
-    source_operation: HTTP API - Bulk operations - Import Users
-  - name: extract_users
-    description: Bulk extract Users.
-    source_operation: HTTP API - Bulk operations - Extract Users
-  - name: extract_accounts
-    description: Bulk extract Accounts.
-    source_operation: HTTP API - Bulk operations - Extract Accounts
+- name: search_users
+  description: Search for Users.
+  source_operation: HTTP API - Users - Search for Users
+- name: list_user_segments
+  description: Get all Users segments.
+  source_operation: HTTP API - Users - Get all Users segments
+- name: update_user_attribute
+  description: Update a User attribute (trait).
+  source_operation: HTTP API - Users - Update User attribute
+- name: search_accounts
+  description: Search for Accounts.
+  source_operation: HTTP API - Accounts - Search for Accounts
+- name: list_account_segments
+  description: Get all Accounts segments.
+  source_operation: HTTP API - Accounts - Get all Accounts segments
+- name: update_account_attribute
+  description: Update an Account attribute.
+  source_operation: HTTP API - Accounts - Update Account attribute
+- name: search_events
+  description: Search for Events.
+  source_operation: HTTP API - Events - Search for Events
+- name: get_events_schema
+  description: Get the Events schema.
+  source_operation: HTTP API - Events - Get all Events Schema
+- name: get_organization_status
+  description: Get organization status.
+  source_operation: HTTP API - Status - Organization status
+- name: import_users
+  description: Bulk import Users.
+  source_operation: HTTP API - Bulk operations - Import Users
+- name: extract_users
+  description: Bulk extract Users.
+  source_operation: HTTP API - Bulk operations - Extract Users
+- name: extract_accounts
+  description: Bulk extract Accounts.
+  source_operation: HTTP API - Bulk operations - Extract Accounts
+deployment:
+  mode: none
+  verified: derived
+  tools: 12
+  checked: '2026-08-12'
+  source: catalog MCP census

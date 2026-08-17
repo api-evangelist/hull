@@ -1,4 +1,4 @@
-generated: '2026-07-19'
+generated: '2026-08-13'
 method: probed
 source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
 hosts:
@@ -7,8 +7,16 @@ hosts:
   tls_cert_error: '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch,
     certificate is not valid for ''www.hull.io'
   hsts: null
+- host: hullapp.io
+  https: false
 domains:
 - domain: hull.io
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: quarantine
+- domain: hullapp.io
   dnssec: false
   caa: []
   spf: true

@@ -1,18 +1,71 @@
-generated: '2026-07-19'
-method: searched
-host: https://www.hull.io
+generated: '2026-08-13'
+method: probed
+source: live GET of each path, 2026-08-13
 note: >-
-  No /.well-known/ discovery documents are published. All probed paths returned
-  404. Recorded for auditability; no WellKnown/SecurityTxt pointer is emitted
-  because nothing was found (absence is valid data).
-documents:
-  - path: /.well-known/security.txt
-    status: 404
-  - path: /.well-known/openid-configuration
-    status: 404
-  - path: /.well-known/oauth-authorization-server
-    status: 404
-  - path: /.well-known/api-catalog
-    status: 404
-  - path: /.well-known/ai-plugin.json
-    status: 404
+  No /.well-known/ discovery document is published on any Hull host. Every path
+  on www.hull.io returned 404 with the site's HTML 404 body; hullapp.io — the
+  API host named in apis.yml — could not be probed at all because it no longer
+  completes a TLS handshake. Recorded for auditability. NO WellKnown, SecurityTxt
+  or AgentCard pointer is emitted, because nothing was found: this file documents
+  an absence, not a presence.
+hosts:
+  - host: https://www.hull.io
+    reachable: true
+    caveat: >-
+      Reachable only with TLS verification disabled — the host presents a
+      *.netlify.app wildcard certificate that does not match www.hull.io.
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+      - path: /llms.txt
+        status: 404
+      - path: /openapi.json
+        status: 404
+      - path: /openapi.yaml
+        status: 404
+      - path: /swagger.json
+        status: 404
+      - path: /v1/openapi.json
+        status: 404
+      - path: /api-docs
+        status: 404
+      - path: /redoc
+        status: 404
+      - path: /sitemap.xml
+        status: 200
+        note: The only machine-readable document the host serves — 566 URLs, no spec.
+  - host: https://hullapp.io
+    reachable: false
+    error: TLS handshake times out after client hello (no response from 8 resolved A records).
+    documents: []
+  - host: https://dashboard.hullapp.io
+    reachable: false
+    error: TLS handshake times out.
+    documents: []
+  - host: https://js.hull.io
+    reachable: false
+    error: Does not resolve in DNS.
+    documents: []
+  - host: https://trust.hull.io
+    reachable: false
+    error: Does not resolve in DNS.
+    documents: []
+  - host: https://security.hull.io
+    reachable: false
+    error: Does not resolve in DNS.
+    documents: []
+pointers_emitted: []

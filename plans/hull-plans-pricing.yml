@@ -1,0 +1,100 @@
+generated: '2026-08-13'
+method: searched
+source: https://www.hull.io/pricing/
+currency: USD
+plan_count: 3
+note: >-
+  Published pricing table remains live on the Hull marketing site even though the
+  platform was shut down on 2022-12-31 and the page carries the banner "Hull is
+  now part of MessageBird and is no longer accepting new customers on Hull.io."
+  These tiers are therefore historical: the page is the provider's own published
+  pricing, but no plan can be purchased. There is no free tier and no self-serve
+  trial; every tier is an annual commercial agreement.
+plans:
+  - name: Team
+    price: 950
+    currency: USD
+    period: month
+    billing: annual commitment, billed annually
+    alt_price:
+      amount: 1045
+      period: month
+      billing: annual commitment, billed quarterly
+    payment: credit card
+    included:
+      incoming_requests_per_month: 10000000
+      platform_connectors: unlimited
+      bookmarks: unlimited
+      computed_segments: 30
+      base_event_retention: 3 months
+    overage:
+      incoming_requests: $190 per additional 1M requests
+    features:
+      - Unified Profiles
+      - Streaming Sync to your tools
+      - Selective Synchronization
+      - Schema View
+      - Intelligent Queuing, Adaptive Rate Limits
+      - Advanced Debugger / Logs View
+      - Computed Attributes
+      - Database Import (SQL Importer)
+      - Customer Success manager
+      - Custom Solution Engineering
+      - GDPR Compliant
+      - Privacy Shield Compliant
+      - SOC2 Type 2
+      - Penetration Testing
+  - name: Business
+    price: 1600
+    currency: USD
+    period: month
+    billing: annual commitment, billed annually
+    alt_price:
+      amount: 1760
+      period: month
+      billing: annual commitment, billed quarterly
+    payment: invoice
+    included:
+      incoming_requests_per_month: 20000000
+      platform_connectors: unlimited
+      bookmarks: unlimited
+      computed_segments: 100
+      base_event_retention: 3 months
+    overage:
+      incoming_requests: $180 per additional 1M requests
+    features:
+      - Everything in Team
+      - Warehouse Sync (Warehouse Connector)
+      - Business Connectors (Salesforce, Marketo)
+      - API Access
+      - Increased Computed Segments (ask for cost)
+      - Increased Event Retention (ask for cost)
+      - Sandbox Environment
+  - name: Business +
+    price: null
+    price_label: Custom
+    currency: USD
+    period: month
+    billing: annual commitment
+    payment: invoice
+    included:
+      incoming_requests_per_month: custom
+      computed_segments: custom
+      base_event_retention: custom
+    overage:
+      incoming_requests: custom
+    features:
+      - Everything in Business
+      - Dedicated Slack Channel
+      - Custom Connector Development
+      - Custom legal terms
+limits_attached_to_tier:
+  - metric: incoming requests per month
+    tiers: {Team: 10000000, Business: 20000000, Business +: custom}
+  - metric: computed segments
+    tiers: {Team: 30, Business: 100, Business +: custom}
+  - metric: base event retention
+    tiers: {Team: 3 months, Business: 3 months, Business +: custom}
+free_tier: false
+trial: false
+self_serve: false
