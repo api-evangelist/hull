@@ -1,4 +1,60 @@
-generated: '2026-10-15'
+generated: '2026-10-20'
+method: searched
+source:
+- https://zapier.com/api/v4/apps/
+- https://zapier.com/apps/hull/integrations
+checked:
+- https://api.nuget.org/v3
+- https://crates.io/api/v1
+- https://proxy.golang.org
+- https://pypi.org/pypi
+- https://registry.npmjs.org
+- https://repo1.maven.org/maven2
+- https://rubygems.org/api/v1
+- https://zapier.com/api/v4/apps/
+- https://composio.dev/toolkits/hull
+- https://monid.ai/tools/hull
+- https://n8n.io/integrations/hull/
+- https://zapier.com/apps/hull/integrations
+summary: null
+marketplace_apps:
+- marketplace: zapier
+  channel: ipaas-listing
+  app: hull
+  url: https://zapier.com/apps/hull/integrations
+  external_url: https://www.hull.io/
+  partner_tier: BRONZE
+  triggers:
+  - key: account_attribute_updated
+    label: Account Attribute Updated
+  - key: account_created
+    label: Account Created
+  - key: account_entered_segment
+    label: Account Entered Segment
+  - key: account_left_segment
+    label: Account Left Segment
+  - key: user_attribute_updated
+    label: User Attribute Updated
+  - key: user_created
+    label: User Created
+  - key: user_entered_segment
+    label: User Entered Segment
+  - key: user_event_created
+    label: User Event Created
+  - key: user_left_segment
+    label: User Left Segment
+  actions:
+  - key: account
+    label: Create or Update an Account
+  - key: user
+    label: Create or Update a User
+  - key: user_event
+    label: Create User Event
+  searches:
+  - key: account
+    label: Find an Account
+  - key: user
+    label: Find a User
 edges:
 - partner_name: Zapier
   partner: zapier
@@ -64,15 +120,141 @@ edges:
     detected: '2026-10-18'
   detected_by: sweep-official-sdks.py
   first_seen: '2026-10-18'
-method: searched
-checked:
-- https://api.nuget.org/v3
-- https://crates.io/api/v1
-- https://proxy.golang.org
-- https://pypi.org/pypi
-- https://registry.npmjs.org
-- https://repo1.maven.org/maven2
-- https://rubygems.org/api/v1
-- https://zapier.com/api/v4/apps/
-source:
-- https://zapier.com/api/v4/apps/
+- partner_name: PostgreSQL
+  partner: postgresql
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/hull/integrations/postgresql
+  direction: third-party
+  category: Databases
+  partner_url: http://www.postgresql.org/
+- partner_name: Shopify
+  partner: shopify
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/hull/integrations/shopify
+  direction: third-party
+  category: eCommerce
+  partner_url: https://www.shopify.com/
+- partner_name: Stripe (Legacy)
+  partner: stripe
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/hull/integrations/stripe-legacy
+  direction: third-party
+  category: Payment Processing
+  partner_url: https://stripe.com/
+- partner_name: MySQL
+  partner: mysql
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/hull/integrations/mysql
+  direction: third-party
+  category: Databases
+  partner_url: https://www.mysql.com/
+- partner_name: GoTo Webinar
+  partner: gotowebinar
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/hull/integrations/gotowebinar
+  direction: third-party
+  category: Webinars
+  partner_url: https://www.gotomeeting.com/
+- partner_name: Pitchbox
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/hull/integrations/pitchbox
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://pitchbox.com/
+- partner_name: VIES API
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/hull/integrations/vies-api
+  direction: third-party
+  category: Accounting
+  partner_url: https://viesapi.eu/
+- partner_name: Google Forms (Legacy)
+  partner: google-forms
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/hull/integrations/google-forms-legacy
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: http://google.com/
+templates:
+- title: Create or update Hull users from new Ninja Forms submissions
+  url: https://zapier.com/apps/hull/integrations/ninjaforms/1408105/create-or-update-hull-users-from-new-ninja-forms-submissions
+  apps:
+  - ninjaforms
+  - hull
+- title: Create or update Hull users with new Zoho Forms entries
+  url: https://zapier.com/apps/hull/integrations/zoho-forms/1411470/create-or-update-hull-users-with-new-zoho-forms-entries
+  apps:
+  - zoho-forms
+  - hull
+- title: Create or update Hull users from new WPForms form entries
+  url: https://zapier.com/apps/hull/integrations/wpforms/1417083/create-or-update-hull-users-from-new-wpforms-form-entries
+  apps:
+  - wpforms
+  - hull
+- title: Create or update Hull users for new Paperless Forms entries
+  url: https://zapier.com/apps/hull/integrations/paperless-forms/1418143/create-or-update-hull-users-for-new-paperless-forms-entries
+  apps:
+  - paperless-forms
+  - hull
+- title: Create Hull user events for each new 123FormBuilder submission
+  url: https://zapier.com/apps/123formbuilder/integrations/hull/1421413/create-hull-user-events-for-each-new-123formbuilder-submission
+  apps:
+  - 123formbuilder
+  - hull
+- title: Create Hull user events from new Gravity Forms submissions
+  url: https://zapier.com/apps/gravity-forms/integrations/hull/1424514/create-hull-user-events-from-new-gravity-forms-submissions
+  apps:
+  - gravity-forms
+  - hull
+- title: Create or update Hull users from new Gravity Forms submissions
+  url: https://zapier.com/apps/gravity-forms/integrations/hull/1425329/create-or-update-hull-users-from-new-gravity-forms-submissions
+  apps:
+  - gravity-forms
+  - hull
+- title: Process new SurveyMonkey responses to create or update Hull users
+  url: https://zapier.com/apps/hull/integrations/surveymonkey/1428021/process-new-surveymonkey-responses-to-create-or-update-hull-users
+  apps:
+  - surveymonkey
+  - hull
+template_total: 8
