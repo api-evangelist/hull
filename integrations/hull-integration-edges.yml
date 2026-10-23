@@ -19,6 +19,7 @@ checked:
 - https://hex.pm/api
 - https://packagist.org/packages
 - https://pub.dev/api
+- intercom/integrations/intercom-integration-edges.yml
 summary: null
 marketplace_apps:
 - marketplace: zapier
@@ -249,6 +250,23 @@ edges:
     detected: '2026-10-22'
   detected_by: sweep-php-dart-elixir-package-registries.py
   first_seen: '2026-10-22'
+- partner_name: Intercom (own)
+  partner: intercom
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://www.intercom.com/app-store/?app_package_code=hull
+  mirror_of: intercom/integrations/intercom-integration-edges.yml
+  apps:
+  - Hull
+  listing_count: 1
+  detected: '2026-10-23'
+  detected_by: mirror-platform-listings.py
+  category: Customer data & CRM
 templates:
 - title: Create or update Hull users from new Ninja Forms submissions
   url: https://zapier.com/apps/hull/integrations/ninjaforms/1408105/create-or-update-hull-users-from-new-ninja-forms-submissions
