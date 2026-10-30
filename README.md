@@ -64,6 +64,124 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Hull is a company surfaced as a portfolio company of point-nine and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+Hull is a real-time Customer Data Platform (CDP) that unifies customer data from every source — web, product, CRM, marketing and support tools, databases and files — into a single User and Account profile using claim-based identity resolution. It ingests, computes and enriches data through a data-lifecycle pipeline (Ingest / Compute / Notify), organizes people and companies into Segments, and syncs the resulting profiles out to more than fifty tools via Connectors ("ships"). Developers integrate through a flat HTTP API at https://{organization}.hullapp.io/api/v1 covering Users, Accounts, Events, Segments, Status and Bulk operations, plus first-party Node, browser, PHP and Ruby client libraries and an outgoing/incoming webhook surface. Hull was acquired by MessageBird (now Bird) and the platform was switched off at 09:00 ET on 31 December 2022, with all infrastructure decommissioned and customer data deleted; the marketing site and documentation remain published but the API host no longer answers.
 
-Backed by: point-nine — http://www.hull.io
+**Areas:** Company · Customer Data Platform · CDP · Identity Resolution · Data Integration · Customer Data · Marketing · Real-Time · iPaaS · Analytics
+
+## Hull on APIs.io
+
+Everything profiled for Hull is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/hull/](https://apis.io/providers/hull/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [Hull HTTP API](https://apis.io/apis/hull/hull-http-api/) — Flat REST API for Hull's Customer Data Platform, addressing objects by ID under the /api/v1 prefix on a per-organization hullapp.io subdomain. Covers Users,…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [Hull Webhooks](https://apis.io/asyncapis/hull/hull-webhooks/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [hull](https://apis.io/servers/hull/hull/)
+
+#### Security (4)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Hull Authentication](https://apis.io/security/hull/hull-authentication/)
+- [Hull Domain Security](https://apis.io/security/hull/hull-domain-security/)
+- [Hull Trust Center](https://apis.io/security/hull/hull-trust-center/)
+- [Hull Vulnerability Disclosure](https://apis.io/security/hull/hull-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Hull Plans Pricing](https://apis.io/plans/hull/hull-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Hull Rate Limits](https://apis.io/rate-limits/hull/hull-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.hull.io)
+- [Documentation](https://www.hull.io/docs/)
+- [Getting started](https://www.hull.io/docs/guides/)
+- [API reference](https://www.hull.io/docs/reference/http_api/)
+- [Pricing](https://www.hull.io/pricing/)
+- [Support](https://www.hull.io/faq/)
+- [Changelog](https://changes.hull.io)
+- [Blog](https://www.hull.io/blog/)
+- [Security](https://www.hull.io/security/)
+- [Compliance](https://www.hull.io/security/)
+- [Privacy policy](https://www.hull.io/pp/)
+- [GitHub](https://github.com/hull)
+- [Status](https://status.hull.io/)
+
+## API Evangelist rating
+
+**Kin Score 51.0** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 39.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 72.4 |
+| Developer ergonomics | 48.8 |
+| Access clarity | 53.9 |
+
+**Agent readiness 25.2** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | yes |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 27.0** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/hull/](https://apis.io/providers/hull/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Hull: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/hull/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
